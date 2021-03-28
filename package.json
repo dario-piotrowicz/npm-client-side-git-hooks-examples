@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "postinstall": "git config core.hooksPath ./git−hooks/",
+    "lint": "eslint index.js",
+    "lint-staged": "lint-staged",
     "test": "jest"
   },
   "repository": {
@@ -24,5 +26,8 @@
     "lint-staged": "^10.5.4",
     "prettier": "2.2.1",
     "pretty-quick": "^3.1.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   }
 }
