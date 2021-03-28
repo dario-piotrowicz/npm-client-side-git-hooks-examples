@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# here we simply run out lint command which checks index.js
+npm run lint
+
+# we then return $? which is the result of the operation
+# if there are errors this will be one, thus the hook will prevent
+# the commit, if there are no errors the commit will continue instead
+exit $?
+
+
+###########################################
+###########################################
+###########################################
+
+# "npm run lint" works perfectly in out example in which anyway
+# we only have one file to check, but in normal projects the number
+# of total files could be quite big and checking/linting all of them
+# can take some time, so there are other possile solutions which
+# only take into consideration the files staged for the commit
+# such as: npm run lint-staged (check the configuration in the package.json)
+# ( feel free to replace "npm run lint" above with "npm run lint-staged"
+# and give it a go )

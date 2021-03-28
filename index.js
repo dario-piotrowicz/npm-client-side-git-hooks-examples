@@ -1,6 +1,6 @@
 const getFibonacciSequence = (nums) => {
     if (nums < 0) {
-        throw new Error('nums is negative');
+        throw new Error("nums is negative");
     }
     if (nums === 0) {
         return [];
@@ -11,7 +11,7 @@ const getFibonacciSequence = (nums) => {
         return [fibA];
     }
     const fibNums = [fibA, fibB];
-    for (let i = 2; i < nums; i++) {
+    for (var i = 2; i < nums; i++) {
         const tmpFib = fibA + fibB;
         fibNums.push(tmpFib);
         fibA = fibB;
@@ -20,12 +20,12 @@ const getFibonacciSequence = (nums) => {
     return fibNums;
 };
 
-const numbersToGet = 2;
+var numbersToGet = 10;
 const fibSequence = getFibonacciSequence(numbersToGet);
 let outStr = `The first ${numbersToGet} fibonacci numbers are: `;
 fibSequence.forEach(
     (fib, idx) =>
-        (outStr += `${fib}${idx < fibSequence.length - 1 ? ', ' : ''}`)
+        (outStr += `${fib}${idx < fibSequence.length - 1 ? ", " : ""}`)
 );
 console.log(outStr);
 
