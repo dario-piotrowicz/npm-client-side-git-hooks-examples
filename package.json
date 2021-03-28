@@ -1,0 +1,20 @@
+{
+  "name": "npm-client-side-git-hooks-examples",
+  "version": "1.0.0",
+  "description": "Some simple examples of client-side git hooks (npm specific)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dario-piotrowicz/npm-client-side-git-hooks-examples.git"
+  },
+  "author": "Dario Piotrowicz (dario.piotrowicz@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dario-piotrowicz/npm-client-side-git-hooks-examples/issues"
+  },
+  "homepage": "https://github.com/dario-piotrowicz/npm-client-side-git-hooks-examples#readme"
+}
