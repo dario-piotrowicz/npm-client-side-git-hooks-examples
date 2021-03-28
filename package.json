@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "postinstall": "git config core.hooksPath ./git−hooks",
+    "postinstall": "git config core.hooksPath ./git−hooks/",
     "test": "jest"
   },
   "repository": {
