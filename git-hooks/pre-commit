@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# here we simply run out lint command which checks index.js
+# here we simply run our lint command which checks index.js
 npm run lint
 
 # we then return $? which is the result of the operation
@@ -8,12 +8,11 @@ npm run lint
 # the commit, if there are no errors the commit will continue instead
 exit $?
 
-
 ###########################################
 ###########################################
 ###########################################
 
-# "npm run lint" works perfectly in out example in which anyway
+# "npm run lint" works perfectly in our example in which anyway
 # we only have one file to check, but in normal projects the number
 # of total files could be quite big and checking/linting all of them
 # can take some time, so there are other possile solutions which
