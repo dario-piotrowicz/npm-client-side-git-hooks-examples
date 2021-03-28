@@ -2,3 +2,5 @@ presentation/*
 !presentation/images
 !presentation.pdf
 !presentation.tex
+
+node_modules
