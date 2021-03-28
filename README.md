@@ -11,6 +11,8 @@ If you're not familiar with client git-hooks have a read at the included [introd
 
 ## How to use the repository
 
+(Note: the node version I used is `14.16.0`)
+
 Just clone the repository to your machine and run `npm install` to install the project's dependencies, the included `postinstall` script will also configure the git hooks directory to be `git-hooks/`.
 
 Once you've done so you will just need to `git checkout` the examples branches, you will find all you need to know in the branch README file.
