@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# here we simply run our format script which formats all the js
+# files we have staged for the commit using pretty-quick (which uses
+# prettier under the hood)
+npm run pretty-quick
+
+# we don't then need to do anything else as the script will
+# exit with an implicit 0 status allowing the commit to continue
+
+
+
+###########################################
+###########################################
+###########################################
+
+# "npm run pretty-quick" works nicely, but if for some reasons
+# (issues with node versions or reluctance to add dev dependencies for example)
+# you'd want to avoid it and use prettier directly you could do so by running
+# prettier on the staged files instead. Unfortunately that would not be enough
+# though, since pretty-quick not only formats the staged files but also re-add
+# them to the commit, with just prettier the files would get formatted but not
+# be included in the commit (I would imagine it should be able to write a script
+# which after the formatting re-adds the files to the commit, but for the sake
+# of semplicity I just used pretty-quick here, which in any case also seems to
+# be the most popular way to implement this behavior)

@@ -1,18 +1,16 @@
 # NPM Client-Side Git-Hooks Examples
 
-This repository contains very simple examples of the application of client-side git-hooks to npm projects,
-those can be used just to see how client-side git-hooks work and how can they be useful.
-Moreover the way the hooks are set up can be used as a reference for any npm project.
-
-If you're not familiar with client git-hooks have a read at the included [introductory presentation](./presentation/presentation.pdf).
-
 \
 &NewLine;
 
-## How to use the repository
+## Pre-Commit Prettier Format
 
-(Note: the node version I used is `14.16.0`)
+(branch `pre-commit__prettier-format`)
 
-Just clone the repository to your machine and run `npm install` to install the project's dependencies, the included `postinstall` script will also configure the git hooks directory to be `git-hooks/`.
-
-Once you've done so you will just need to `git checkout` the examples branches, you will find all you need to know in the branch README file.
+I have modified the code in the [index.js](./index.js) file so that the code style doesn't adhere anymore to the styles specified in the prettier configuration file, alongside that change I added a [pre-commit script](git-hooks/pre-commit) hook in our hook directory which will format/prettify the code (staged to be committed), after that the commit proceeds as usual.
+\
+\
+So, try to make some simple change in the `index.js` file and commit your changes, as long as at least one style violation (like duble quotes instead of single quotes or missing semicolons) remains the code will be formatted during the commit process (the formatting happens even if there are no style violations of course but in that case you will not see any change in the index file).
+\
+\
+(also check the comments in the `pre-commit` file, they explain alternative implementations)
