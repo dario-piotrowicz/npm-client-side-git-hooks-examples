@@ -1,0 +1,4 @@
+presentation/*
+!presentation/images
+!presentation.pdf
+!presentation.tex
