@@ -1,6 +1,6 @@
 # NPM Client-Side Git-Hooks Examples
 
-This repository contains very simple examples of the application of client-size git-hooks to npm projects,
+This repository contains very simple examples of the application of client-side git-hooks to npm projects,
 those can be used just to see how client-side git-hooks work and how can they be useful.
 Moreover the way the hooks are set up can be used as a reference for any npm project.
 
