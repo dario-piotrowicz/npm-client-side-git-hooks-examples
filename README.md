@@ -3,7 +3,7 @@
 \
 &NewLine;
 
-## Pre-Commit Prettier Format
+## Pre-Commit Format And Check
 
 (branch `pre-commit__format-and-check`)
 
