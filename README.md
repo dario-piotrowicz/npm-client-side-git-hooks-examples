@@ -22,6 +22,8 @@ Once you've done so you will just need to `git checkout` the examples branches, 
 Except from `master` the available branches/examples are:
  - `pre-commit__lint-check`\
     pre-commit hook which checks for linting issues in the index.js file, it prevents you from committing if there
-    are erros
+    are errors
  - `pre-commit__prettier-format`\
     pre-commit hook which automatically formats the index.js file during the commit process
+ - `pre-commit__format-and-check`\
+    pre-commit hook which formats the js code staged for the commit and also runs a lint check agains them, it prevents the committing if there are errors
