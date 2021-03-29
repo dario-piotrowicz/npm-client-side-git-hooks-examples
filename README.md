@@ -16,3 +16,12 @@ If you're not familiar with client git-hooks have a read at the included [introd
 Just clone the repository to your machine and run `npm install` to install the project's dependencies, the included `postinstall` script will also configure the git hooks directory to be `git-hooks/`.
 
 Once you've done so you will just need to `git checkout` the examples branches, you will find all you need to know in the branch README file.
+
+### Branches
+
+Except from `master` the available branches/examples are:
+ - `pre-commit__lint-check`\
+    pre-commit hook which checks for linting issues in the index.js file, it prevents you from committing if there
+    are erros
+ - `pre-commit__prettier-format`\
+    pre-commit hook which automatically formats the index.js file during the commit process
