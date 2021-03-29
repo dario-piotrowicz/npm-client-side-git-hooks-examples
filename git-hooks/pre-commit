@@ -17,10 +17,9 @@ npm run pretty-quick
 # "npm run pretty-quick" works nicely, but if for some reasons
 # (issues with node versions or reluctance to add dev dependencies for example)
 # you'd want to avoid it and use prettier directly you could do so by running
-# prettier on the staged files instead. Unfortunately that would not be enough
-# though, since pretty-quick not only formats the staged files but also re-add
-# them to the commit, with just prettier the files would get formatted but not
-# be included in the commit (I would imagine it should be able to write a script
-# which after the formatting re-adds the files to the commit, but for the sake
-# of semplicity I just used pretty-quick here, which in any case also seems to
-# be the most popular way to implement this behavior)
+# prettier on the staged files instead (and also re-add them to the commit, thing
+# that pretty-quick already does for you), such a script could be:
+
+# stagedJsFiles=$(git diff --cached --name-only --diff-filter=ACMRTUB | grep '\.js')
+# ./node_modules/.bin/prettier --write $stagedJsFiles
+# git add $stagedJsFiles
