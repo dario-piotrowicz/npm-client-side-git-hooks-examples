@@ -20,7 +20,7 @@ const getFibonacciSequence = (nums) => {
     return fibNums;
 };
 
-const numbersToGet = 2;
+const numbersToGet = 10;
 const fibSequence = getFibonacciSequence(numbersToGet);
 let outStr = `The first ${numbersToGet} fibonacci numbers are: `;
 fibSequence.forEach(
