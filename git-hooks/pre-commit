@@ -1,25 +1,16 @@
 #!/bin/sh
 
-# here we simply run our format script which formats all the js
-# files we have staged for the commit using pretty-quick (which uses
-# prettier under the hood)
-npm run pretty-quick
+stagedJsFiles=$(git diff --cached --name-only --diff-filter=ACMRTUB | grep '\.js')
+echo "stagedJsFiles='${stagedJsFiles}'"
 
-# we don't then need to do anything else as the script will
-# exit with an implicit 0 status allowing the commit to continue
+if [ -z "$stagedJsFiles" ] ; then
+ exit 0
+fi
 
+./node_modules/.bin/prettier --write $stagedJsFiles
+git add $stagedJsFiles
 
+./node_modules/.bin/eslint $stagedJsFiles
 
-###########################################
-###########################################
-###########################################
+exit $?
 
-# "npm run pretty-quick" works nicely, but if for some reasons
-# (issues with node versions or reluctance to add dev dependencies for example)
-# you'd want to avoid it and use prettier directly you could do so by running
-# prettier on the staged files instead (and also re-add them to the commit, thing
-# that pretty-quick already does for you), such a script could be:
-
-# stagedJsFiles=$(git diff --cached --name-only --diff-filter=ACMRTUB | grep '\.js')
-# ./node_modules/.bin/prettier --write $stagedJsFiles
-# git add $stagedJsFiles
