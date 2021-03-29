@@ -21,5 +21,8 @@ npm run pretty-quick
 # that pretty-quick already does for you), such a script could be:
 
 # stagedJsFiles=$(git diff --cached --name-only --diff-filter=ACMRTUB | grep '\.js')
+# if [ -z "$stagedJsFiles" ] ; then
+#  exit 0
+# fi
 # ./node_modules/.bin/prettier --write $stagedJsFiles
 # git add $stagedJsFiles
