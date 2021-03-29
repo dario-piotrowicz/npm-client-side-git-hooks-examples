@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# this simply a bash function used to hide a command's output and show 
+# a fancy message with loading spinners instead
+exec_long_command()
+{
+  setterm -cursor off
+  length=$(($#-1))
+  command=${@:1:$length}
+  comment=${@:$length+1}
+  ( $(echo "$command") ) &> /dev/null &
+  local -r pid="$!"
+  local -r delay='0.1'
+  local spinstr='\|/-'
+  local temp
+  while ps a | awk '{print $1}' | grep -q "${pid}"; do
+    temp="${spinstr#?}"
+    printf " [%c $comment %c]" "${spinstr}" "${spinstr}"
+    spinstr=${temp}${spinstr%"${temp}"}
+    sleep "${delay}"
+
+    printf "\b"
+    for (( i=0; i<${#comment}; i++ )); do
+       printf "\b"
+    done
+    printf "\b"
+
+    printf "\b\b\b\b\b"
+  done
+  printf " "
+  for (( i=0; i<${#comment}; i++ )); do
+    printf " "
+  done
+  printf " "
+  printf "     "
+  
+  printf "\b"
+  for (( i=0; i<${#comment}; i++ )); do
+    printf "\b"
+  done
+  printf "\b"
+  printf "\b\b\b\b\b"
+
+  exitS=$( wait ${pid} ; echo $? )
+  setterm -cursor on
+  return "$exitS"
+}
+
+
+# here we simply run our test command
+exec_long_command npm run test "Unit testing the JS files before the push"
+
+
+if [ $? -ne 0 ]; then
+    echo -e "\e[31m ❌ Some unit tests have failed, push aborted \e[39m";
+    exit 1;
+else
+    echo -e "\e[32m ✅ All the unit tests have passed, push accepted \e[39m";
+fi

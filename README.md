@@ -2,14 +2,18 @@
 
 \
 &NewLine;
-## Pre-Commit Lint Check
+## Pre-Push Test
 
-(branch `pre-commit__lint-check`)
+(branch `pre-push__test`)
 
-I have modified the code in the [index.js](./index.js) file so that it produces lint errors, alongside that change I added a [pre-commit script](git-hooks/pre-commit) hook in our hook directory which checks that the code (staged to be committed) passes the lint check, if it doesn't the commit won't take place.
+I have modified the code in the [index.js](./index.js) file so that it does not pass unit testing anymore, alongside that change I added a [pre-push script](git-hooks/pre-commit) hook in our hook directory which checks that the unit tests need to pass, if they don't it doesn't allow the push to take place.
 \
 \
-So, try to make some simple change in the `index.js` file and commit your changes, as long as at least one lint error remains the commit won't be allowed, if you solve all the linting issues however you will be free to commit as usual.
+So, try to make some simple change in the `index.js` file, commit your changes and try to push, as long as at least one unit test fails the push won't be allowed. If all unit tests pass you will be free to push as usual.
+
+> Note that your push will fail either way if you haven't got write access to this repo, but you will still be able to see the pre-push behavior in action regardless, if you want your push to actually go through just fork the repo and use your fork instead.
+
 \
+In this hook I am hiding the tests results and only showing the final outcome (pass or fail), in practice it may be more convenient to also show the actual tests results so that the commiter can immediately see what the issue is, I chose to go this route just to show that we can do all sort of fancy stuff in our scripts.
 \
-(also check the comments in the `pre-commit` file, they explain alternative implementations)
+_(Also unit tests can take a long time so this may not be very usable in practice, server-side hooks/checks are likely to be more appropriate here)_

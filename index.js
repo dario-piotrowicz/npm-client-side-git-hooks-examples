@@ -1,7 +1,4 @@
 const getFibonacciSequence = (nums) => {
-    if (nums < 0) {
-        throw new Error('nums is negative');
-    }
     if (nums === 0) {
         return [];
     }
