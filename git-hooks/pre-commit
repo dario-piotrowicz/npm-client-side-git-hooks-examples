@@ -20,3 +20,20 @@ exit $?
 # such as: npm run lint-staged (check the configuration in the package.json)
 # ( feel free to replace "npm run lint" above with "npm run lint-staged"
 # and give it a go )
+
+###########################################
+###########################################
+###########################################
+
+# Another solution which does not required the installation of dependencies
+# is to actually implement a script which only checks/lints the staged files
+# this can be done by using git and standard scripting features, for such
+# a script could be (this would be the entire pre-commit):
+
+#
+# git diff --cached --name-only --diff-filter=ACMRTUB | \
+# grep '\.js' | \
+# xargs ./node_modules/.bin/eslint
+#
+# exit $?
+
