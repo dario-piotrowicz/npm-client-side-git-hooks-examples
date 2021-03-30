@@ -29,3 +29,4 @@ Except from `master` the available branches/examples are:
     pre-commit hook which formats the js code staged for the commit and also runs a lint check agains them, it prevents the committing if there are errors
  - `pre-push__test`\
     pre-push hook which runs the unit tests again the js files, it prevents the push if there are any failures (this example also shows how we can get a bit fancy with our scripts)
+    > Unfortunately you can only see this hook in action if you fork this repository since you don't have the write access necessary to push here
