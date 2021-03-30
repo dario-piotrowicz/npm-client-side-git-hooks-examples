@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# save the name of the file with the default message
+commitEditMsgFile=$1
+
+# just defining a function to show a red message
+echoRed(){ echo -e "\e[31m$1\e[39m"; }
+
+# we check that there is one and only one 
+# non-commented and non-empty line
+commitLines=$( grep "^[^#]" $commitEditMsgFile ) 
+numOfCommitLines=$( echo "$commitLines" | grep "" -c ) 
+
+if [ $numOfCommitLines -eq 0 ]; then
+    echoRed "⛔ No commit message provided! Commit Aborted!"
+    exit 1
+elif [ $numOfCommitLines -ne 1 ]; then
+    echoRed "⛔ Multi-line commit message provided! Commit Aborted!"
+    exit 1
+fi
+
+# there is only one non-commented and non-empty line
+# so that is our commit message
+commitMessage=$commitLines
+
+# this regex checks for our format
+commitMessageFormatRegex="^task-[0-9]{4}: (.){5,30}"
+
+# we make sure that the commit message matches the regex
+if ! [[ $commitMessage =~ $commitMessageFormatRegex ]]; then
+    echoRed "⛔ The commit message does not match our format! Commit Aborted!"
+    echoRed "\tthe required format is:"
+    echo -e "\e[35m\t task-\e[32m[4-digits-number]\e[35m: \e[33m[short-description]\e[35m (min 5, max 30 characters)\e[39m"
+    exit 1
+fi
+
+timeStamp=$( date +"%d/%m/%Y-%H:%M" )
+echo "$commitMessage [$timeStamp]" > $commitEditMsgFile
