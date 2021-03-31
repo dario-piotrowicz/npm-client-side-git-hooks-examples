@@ -13,6 +13,8 @@ Now when you try to commit some changes the `preare-commit-msg`
 hook will provide you with a suggestion for your commit message
 > Note: this hook gets skipped if you git commit with the `-m` flag
 
+> Note: in the example we use the `preare-commit-msg` with some static text ( just to keep the hooks simple ), this however can be achieved by simply setting a template for the commit, the `prepare-commit-msg` hook should be used if you actually need to have some dynamic logic attached to the default message creation 
+
 Then after your commit message is ready (regarless on whether you've used `-m` or not) it will be checked by the `commit-msg` hook, if it doesn't pass the check (meaning that it doesn't respect the format we decided our commits to have) the commit will be aborted (you will be provided hints on how to fix the commit), othewise the script will add a timestamp to your message and will allow the commit to proceed.
 \
 \
