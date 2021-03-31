@@ -18,6 +18,7 @@ echo "task-????: ?????" > $commitEditMsgFile
 echo "" >> $commitEditMsgFile
 echo "# The format we require for our commits is:" >> $commitEditMsgFile
 echo "#\ttask-{4 digits number}: small description of changes [min 5, max 30 characters]" >> $commitEditMsgFile
+echo "" >> $commitEditMsgFile
 
 # appending the original content (of course this is optional)
 # but we first make sure to comment all uncommented lines
