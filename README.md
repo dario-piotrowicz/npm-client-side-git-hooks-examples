@@ -30,3 +30,5 @@ Except from `master` the available branches/examples are:
  - `pre-push__test`\
     pre-push hook which runs the unit tests again the js files, it prevents the push if there are any failures (this example also shows how we can get a bit fancy with our scripts)
     > Unfortunately you can only see this hook in action if you fork this repository since you don't have the write access necessary to push here
+ - `prepare-commit-msg_commit-msg`\
+    prepare-commit-msg and commit-msg hooks, the first creates a default/template message for your commit whilst the second checks that the message matches the required format
