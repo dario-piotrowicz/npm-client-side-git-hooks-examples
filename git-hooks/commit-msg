@@ -4,7 +4,7 @@
 commitEditMsgFile=$1
 
 # just defining a function to show a red message
-echoRed(){ echo -e "\e[31m$1\e[39m"; }
+echoRed(){ echo -e "\033[31m$1\033[39m"; }
 
 # we check that there is one and only one 
 # non-commented and non-empty line
@@ -30,7 +30,7 @@ commitMessageFormatRegex="^task-[0-9]{4}: (.){5,30}"
 if ! [[ $commitMessage =~ $commitMessageFormatRegex ]]; then
     echoRed "⛔ The commit message does not match our format! Commit Aborted!"
     echoRed "\tthe required format is:"
-    echo -e "\e[35m\t task-\e[32m[4-digits-number]\e[35m: \e[33m[short-description]\e[35m (min 5, max 30 characters)\e[39m"
+    echo -e "\033[35m\t task-\033[32m[4-digits-number]\033[35m: \033[33m[short-description]\033[35m (min 5, max 30 characters)\033[39m"
     exit 1
 fi
 
