@@ -1,8 +1,9 @@
 #!/bin/sh
 
-if [ $# -ne 1 ]; then
-    # normal/simple commits provide only one argument
-    # with more arguments we just skip the hook
+# normal/simple commits provide only one argument
+# with more arguments we just skip the hook, unless
+# it is simply using a template
+if [ $# -ne 1 ] && ! [ $2 == "template" ]; then
     exit 0
 fi 
 
@@ -19,7 +20,10 @@ echo "# The format we require for our commits is:" >> $commitEditMsgFile
 echo "#\ttask-{4 digits number}: small description of changes [min 5, max 30 characters]" >> $commitEditMsgFile
 
 # appending the original content (of course this is optional)
-echo "$originalFileContent" >> $commitEditMsgFile
+# but we first make sure to comment all uncommented lines
+# (there could be some if a template is used)
+commentedOriginalFileContent=$( echo "$originalFileContent" | sed -e '/^#/! s/^/#/' )
+echo "$commentedOriginalFileContent" >> $commitEditMsgFile
 
 # Here is for some reason we want to abort the commit
 # we can still exit with a non-zero code:
