@@ -52,8 +52,8 @@ exec_long_command npm run test "Unit testing the JS files before the push"
 
 
 if [ $? -ne 0 ]; then
-    echo -e "\e[31m ❌ Some unit tests have failed, push aborted \e[39m";
+    echo -e "\033[31m ❌ Some unit tests have failed, push aborted \033[39m";
     exit 1;
 else
-    echo -e "\e[32m ✅ All the unit tests have passed, push accepted \e[39m";
+    echo -e "\033[32m ✅ All the unit tests have passed, push accepted \033[39m";
 fi
