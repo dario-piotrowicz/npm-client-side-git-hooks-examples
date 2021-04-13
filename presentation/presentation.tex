@@ -233,7 +233,7 @@
 
 
 \begin{frame}{React's pre-commit linting hook}
-  React has a pre-commit hook to eslint the staged \textit{js} files
+  React has a \textbf{pre-commit} hook to eslint the staged \textit{js} files
   \begin{center}
    \href{https://github.com/facebook/react/blob/master/scripts/git/pre-commit}{
       \includegraphics[scale=0.2]{react-pre-commit.png}
@@ -241,6 +241,17 @@
   \end{center}
 \end{frame}
 
+
+\begin{frame}{Vue's package.json gitHooks}
+  The Vue repo implements both a \textbf{pre-commit} and \textbf{commit-msg} in its package.json using a fork of husky v4 (called
+  {\color{purple} \href{https://github.com/yyx990803/yorkie}{yorkie}}):
+
+  \begin{center}
+   \href{https://github.com/vuejs/vue/blob/dev/package.json\#L46}{
+      \includegraphics[scale=0.2]{vue-githooks.png}
+   }
+  \end{center}
+\end{frame}
 
 
 \end{document}
