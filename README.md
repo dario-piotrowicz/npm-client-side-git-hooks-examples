@@ -11,7 +11,7 @@ If you're not familiar with client git-hooks have a read at the included [introd
 
 ## How to use the repository
 
-(Note: the node version I used is `14.16.0`)
+(Note: the node version I used is `14.16.0`, to make sure everything works fine using the same one would be best)
 
 Just clone the repository to your machine and run `npm install` to install the project's dependencies, the included `postinstall` script will also configure the git hooks directory to be `git-hooks/`.
 
@@ -20,15 +20,16 @@ Once you've done so you will just need to `git checkout` the examples branches, 
 ### Branches
 
 Except from `master` the available branches/examples are:
- - `pre-commit__lint-check`\
-    pre-commit hook which checks for linting issues in the index.js file, it prevents you from committing if there
+
+-   `pre-commit__lint-check`\
+     pre-commit hook which checks for linting issues in the index.js file, it prevents you from committing if there
     are errors
- - `pre-commit__prettier-format`\
-    pre-commit hook which automatically formats the index.js file during the commit process
- - `pre-commit__format-and-check`\
-    pre-commit hook which formats the js code staged for the commit and also runs a lint check agains them, it prevents the committing if there are errors
- - `pre-push__test`\
-    pre-push hook which runs the unit tests again the js files, it prevents the push if there are any failures (this example also shows how we can get a bit fancy with our scripts)
+-   `pre-commit__prettier-format`\
+     pre-commit hook which automatically formats the index.js file during the commit process
+-   `pre-commit__format-and-check`\
+     pre-commit hook which formats the js code staged for the commit and also runs a lint check agains them, it prevents the committing if there are errors
+-   `pre-push__test`\
+     pre-push hook which runs the unit tests again the js files, it prevents the push if there are any failures (this example also shows how we can get a bit fancy with our scripts)
     > Unfortunately you can only see this hook in action if you fork this repository since you don't have the write access necessary to push here
- - `prepare-commit-msg_commit-msg`\
-    prepare-commit-msg and commit-msg hooks, the first creates a default/template message for your commit whilst the second checks that the message matches the required format
+-   `prepare-commit-msg_commit-msg`\
+     prepare-commit-msg and commit-msg hooks, the first creates a default/template message for your commit whilst the second checks that the message matches the required format
