@@ -1,7 +1,6 @@
 #!/bin/sh
 
 stagedJsFiles=$(git diff --cached --name-only --diff-filter=ACMRTUB | grep '\.js')
-echo "stagedJsFiles='${stagedJsFiles}'"
 
 if [ -z "$stagedJsFiles" ] ; then
  exit 0
