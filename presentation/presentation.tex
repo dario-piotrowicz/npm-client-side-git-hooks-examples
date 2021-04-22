@@ -183,9 +183,9 @@
   So let's add a new script to out \textit{package.json} so that this will be done automatically after every installation:
   \begin{footnotesize}
     \begin{lstlisting}[frame=single,columns=fullflexible]
- scripts: {
+ "scripts": {
    ...,
-   postinstall: "git config core.hooksPath ./git-hooks",
+   "postinstall": "git config core.hooksPath ./git-hooks",
    ...
  }
    \end{lstlisting}
